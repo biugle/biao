@@ -1,0 +1,32 @@
+{
+  "name": "@biugle/biu-store",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@biugle/biu-i18n": "workspace:*",
+    "@biugle/biu-router": "workspace:*",
+    "zustand": "^5.0.3"
+  },
+  "devDependencies": {
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

@@ -1,0 +1,88 @@
+.vue-demo-page {
+  min-height: 100%;
+  padding: 28px;
+  color: #172033;
+  background: linear-gradient(145deg, #fff, #f6f7f9);
+}
+.vue-demo-eyebrow {
+  margin: 0 0 8px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.vue-demo-page h1 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: clamp(24px, 3vw, 32px);
+  letter-spacing: -0.04em;
+}
+.vue-demo-page > p {
+  max-width: 680px;
+  color: #64748b;
+  line-height: 1.7;
+}
+.vue-demo-context {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 24px 0;
+}
+.vue-demo-context div {
+  min-width: 0;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+}
+.vue-demo-context dt {
+  color: #94a3b8;
+  font-size: 11px;
+}
+.vue-demo-context dd {
+  margin: 6px 0 0;
+  overflow: hidden;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.vue-demo-page button {
+  min-height: 36px;
+  padding: 0 14px;
+  color: #fff;
+  background: #111827;
+  border: 1px solid #111827;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.vue-demo-page button:hover {
+  background: #263244;
+}
+@media (max-width: 680px) {
+  .vue-demo-page {
+    padding: 20px;
+  }
+  .vue-demo-context {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 420px) {
+  .vue-demo-context {
+    grid-template-columns: 1fr;
+  }
+}
+[data-biu-theme="dark"] .vue-demo-page {
+  color: #e5e7eb;
+  background: linear-gradient(145deg, #141921, #1a202b);
+}
+[data-biu-theme="dark"] .vue-demo-page h1,
+[data-biu-theme="dark"] .vue-demo-context dd {
+  color: #f9fafb;
+}
+[data-biu-theme="dark"] .vue-demo-context div {
+  background: #1d2530;
+  border-color: #344050;
+}

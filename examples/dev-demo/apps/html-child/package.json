@@ -1,0 +1,23 @@
+{
+  "name": "html-child",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "biu dev",
+    "biu": "biu",
+    "build": "biu build --all",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@biugle/biu-adapter-react": "workspace:*",
+    "@biugle/biu-preset": "workspace:*",
+    "@biugle/biu-runtime": "workspace:*",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@biugle/biu-cli": "workspace:*",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3"
+  }
+}

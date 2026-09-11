@@ -1,0 +1,25 @@
+{
+  "name": "biu-dev-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:foundation": "pnpm --filter @biugle/biu-events build && pnpm --filter @biugle/biu-i18n build && pnpm --filter @biugle/biu-bridge build && pnpm --filter @biugle/biu-router build && pnpm --filter @biugle/biu-store build && pnpm --filter @biugle/biu-ui build && pnpm --filter @biugle/biu-runtime build && pnpm --filter @biugle/biu-preset build && pnpm --filter @biugle/biu-adapter-react build && pnpm --filter @biugle/biu-cli build",
+    "start": "biu start",
+    "start:portal-b": "pnpm --filter main-b start",
+    "start:all": "pnpm start --filter main-a -- --apps ../child-app,../vue-child",
+    "check": "pnpm build:foundation && pnpm --filter main-a typecheck && pnpm --filter main-b typecheck && pnpm --filter child-app typecheck && pnpm --filter vue-child typecheck && pnpm --filter html-child typecheck && pnpm --filter layout-custom typecheck",
+    "build": "pnpm build:foundation && pnpm --filter child-app build && pnpm --filter vue-child build && pnpm --filter html-child build && pnpm --filter main-a build && pnpm --filter main-b build && pnpm --filter layout-custom build",
+    "lint": "eslint .",
+    "format:check": "prettier --check .",
+    "prepare": "pnpm build:foundation && node scripts/prepare.mjs"
+  },
+  "devDependencies": {
+    "@biugle/biu-cli": "workspace:*",
+    "@eslint/js": "^9.17.0",
+    "eslint": "^9.17.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.18.0"
+  }
+}

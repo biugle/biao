@@ -1,0 +1,372 @@
+/* Theme tokens, contrast rules and text direction. */
+
+/* Theme tokens are owned by the preset and inherited by every local page.
+   Embedded apps receive the same values through HOST_CONTEXT and apply them
+   to their own document root. */
+[data-biu-theme="dark"] {
+  --biu-ink: #e6edf8;
+  --biu-ink-soft: #c2cde0;
+  --biu-muted: #8795aa;
+  --biu-brand: #f3f4f6;
+  --biu-brand-deep: #ffffff;
+  --biu-brand-soft: #29313d;
+  --biu-brand-line: #465160;
+  --biu-brand-mark: #e8eef8;
+  --biu-brand-mark-foreground: #151d2d;
+  --biu-surface: #172131;
+  --biu-canvas: #101722;
+  --biu-line: #293548;
+  --biu-line-strong: #3a4961;
+  --biu-sidebar: #141d2b;
+  --biu-sidebar-muted: #a5b2c7;
+  --biu-shadow: 0 10px 28px rgb(0 0 0 / 20%);
+  --biu-shadow-float: 0 18px 42px rgb(0 0 0 / 42%);
+}
+[data-biu-theme="dark"] .biu-header,
+[data-biu-theme="dark"] .biu-tabs-bar {
+  background: rgb(20 29 43 / 96%);
+}
+[data-biu-theme="dark"] .biu-page-content,
+[data-biu-theme="dark"] .biu-header-popover,
+[data-biu-theme="dark"] .biu-tab-context-menu,
+[data-biu-theme="dark"] .biu-error-boundary-card {
+  background: var(--biu-surface);
+}
+[data-biu-theme="dark"] .biu-menu-directory-title:hover,
+[data-biu-theme="dark"] .biu-menu-item:hover,
+[data-biu-theme="dark"] .biu-search-input-wrap {
+  background: #1c293c;
+  border-color: var(--biu-line);
+}
+[data-biu-theme="dark"] .biu-menu-icon,
+[data-biu-theme="dark"] .biu-menu-icon-directory {
+  color: #a9b7cd;
+  background: #202c3e;
+  border-color: #33445d;
+}
+[data-biu-theme="dark"] .biu-menu-item-active .biu-menu-icon {
+  background: #24385c;
+  border-color: var(--biu-brand-line);
+}
+[data-biu-theme="dark"] .biu-frame-state,
+[data-biu-theme="dark"] .biu-remote-frame-shell,
+[data-biu-theme="dark"] .biu-app-frame {
+  background: var(--biu-surface);
+}
+[data-biu-theme="dark"] .biu-header-action:hover,
+[data-biu-theme="dark"] .biu-header-action-active,
+[data-biu-theme="dark"] .biu-header-menu-item:hover,
+[data-biu-theme="dark"] .biu-header-menu-item-active {
+  background: var(--biu-brand-soft);
+}
+[data-biu-theme="dark"] .biu-sidebar-collapse {
+  background: var(--biu-sidebar);
+}
+[data-biu-theme="dark"] .biu-mobile-menu {
+  background: rgb(20 29 43 / 96%);
+  box-shadow: 0 -6px 18px rgb(0 0 0 / 28%);
+}
+[data-biu-theme="dark"] .biu-mobile-menu .biu-menu-item {
+  color: var(--biu-muted);
+}
+
+/* Browser direction is set on the document root by the runtime. Keep the
+   rail and nested menu guide aligned without requiring project CSS. */
+[dir="rtl"] .biu-sidebar-layout .biu-sidebar {
+  border-right: 0;
+  border-left: 1px solid var(--biu-line);
+}
+[dir="rtl"] .biu-menu-directory-title,
+[dir="rtl"] .biu-menu-item,
+[dir="rtl"] .biu-sidebar-collapse {
+  text-align: right;
+}
+[dir="rtl"] .biu-menu-chevron {
+  margin-right: auto;
+  margin-left: 0;
+}
+[dir="rtl"] .biu-menu-children {
+  margin-right: 4px;
+  margin-left: 0;
+  padding-right: 3px;
+  padding-left: 0;
+  border-right: 1px solid var(--biu-line);
+  border-left: 0;
+}
+[dir="rtl"] .biu-tab-main {
+  text-align: right;
+}
+[dir="rtl"] .biu-search-results button,
+[dir="rtl"] .biu-header-menu-item,
+[dir="rtl"] .biu-notification-item {
+  text-align: right;
+}
+
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-header,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-breadcrumb {
+  background: rgb(20 25 33 / 96%);
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-sidebar,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-sidebar-brand,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-sidebar-collapse {
+  background: #141921;
+}
+[data-biu-theme="dark"] .biu-tabs-toolbar-group {
+  background: rgb(20 29 43 / 88%);
+}
+[data-biu-theme="dark"] .biu-tabs-tool:hover:not(:disabled) {
+  background: #27354a;
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-active {
+  color: #ffffff;
+  background: #315f9e;
+  border-color: #5f8fd1;
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-active .biu-menu-icon {
+  color: #ffffff;
+  background: rgb(255 255 255 / 14%);
+}
+
+[data-biu-theme="light"] {
+  color-scheme: light;
+}
+[data-biu-theme="dark"] {
+  color-scheme: dark;
+}
+[data-biu-theme="dark"] .biu-tab-drag-over {
+  border-color: var(--biu-tab-drop-border);
+}
+
+/* Final contrast contract: active and hover are distinct states in both
+   themes. Inactive hover uses a quiet surface, while active keeps a clear
+   filled highlight and readable text. */
+:root {
+  --biu-menu-active-bg: #151d2d;
+  --biu-menu-active-fg: #ffffff;
+  --biu-menu-active-border: #151d2d;
+  --biu-menu-hover-bg: #263246;
+  --biu-menu-hover-fg: #ffffff;
+  --biu-menu-hover-border: #42536b;
+  --biu-tab-drop-border: #6a8fca;
+}
+[data-biu-theme="dark"] {
+  --biu-menu-active-bg: #315f9e;
+  --biu-menu-active-fg: #ffffff;
+  --biu-menu-active-border: #5f8fd1;
+  --biu-menu-hover-bg: #263b55;
+  --biu-menu-hover-fg: #f5f8ff;
+  --biu-menu-hover-border: #45698f;
+  --biu-tab-drop-border: #9bc2ff;
+}
+.biu-sidebar-layout .biu-menu-item-active {
+  color: var(--biu-menu-active-fg);
+  background: var(--biu-menu-active-bg);
+  border-color: var(--biu-menu-active-border);
+  box-shadow: 0 5px 12px rgb(21 29 45 / 13%);
+}
+.biu-sidebar-layout .biu-menu-item-wrap-active {
+  color: var(--biu-menu-active-fg);
+  background: var(--biu-menu-active-bg);
+  border-color: var(--biu-menu-active-border);
+  box-shadow: 0 5px 12px rgb(21 29 45 / 13%);
+}
+.biu-sidebar-layout .biu-menu-item-wrap-active .biu-menu-item {
+  color: inherit;
+  background: transparent;
+  border-color: transparent;
+  box-shadow: none;
+}
+.biu-sidebar-layout .biu-menu-item-active .biu-menu-icon {
+  color: var(--biu-menu-active-fg);
+  background: rgb(255 255 255 / 12%);
+  border-color: transparent;
+}
+.biu-sidebar-layout .biu-menu-item-wrap-active .biu-menu-favorite,
+.biu-sidebar-layout .biu-menu-item-wrap-active .biu-menu-new-tab {
+  color: var(--biu-menu-active-fg);
+}
+.biu-sidebar-layout .biu-menu-item:hover:not(.biu-menu-item-active),
+.biu-sidebar-layout .biu-menu-directory-title:hover {
+  color: var(--biu-menu-hover-fg);
+  background: var(--biu-menu-hover-bg);
+  border-color: var(--biu-menu-hover-border);
+}
+.biu-sidebar-layout .biu-menu-item:hover:not(.biu-menu-item-active) .biu-menu-icon,
+.biu-sidebar-layout .biu-menu-directory-title:hover .biu-menu-icon {
+  color: currentColor;
+  background: transparent;
+  border-color: transparent;
+}
+[data-biu-theme="light"] .biu-sidebar-layout .biu-menu-item-active {
+  color: var(--biu-menu-active-fg);
+  background: var(--biu-menu-active-bg);
+  border-color: var(--biu-menu-active-border);
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-active {
+  color: var(--biu-menu-active-fg);
+  background: var(--biu-menu-active-bg);
+  border-color: var(--biu-menu-active-border);
+  box-shadow: 0 5px 14px rgb(0 0 0 / 24%);
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-active .biu-menu-icon {
+  color: var(--biu-menu-active-fg);
+  background: rgb(255 255 255 / 14%);
+  border-color: rgb(255 255 255 / 18%);
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-directory-title {
+  color: #c5d1e3;
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item:hover:not(.biu-menu-item-active),
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-directory-title:hover {
+  color: #f5f8ff;
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-active,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-active:hover {
+  color: #ffffff;
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-active .biu-menu-label,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-wrap-active .biu-menu-label,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-wrap:hover .biu-menu-label,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-directory-title:hover .biu-menu-label {
+  color: #ffffff;
+}
+
+/* Typography hierarchy: group rail < menu text < current heading. */
+:root {
+  --biu-menu-directory-fg: #777777;
+  --biu-menu-directory-active-fg: #5f6875;
+  --biu-menu-current-fg: #111111;
+  --biu-tab-fg: #777777;
+  --biu-tab-prefix-fg: #6d7a8e;
+  --biu-tab-current-fg: #111111;
+  --biu-menu-selected-bg: #eef1f4;
+  --biu-menu-selected-fg: #5b6675;
+}
+[data-biu-theme="dark"] {
+  --biu-menu-directory-fg: #9ba8ba;
+  --biu-menu-directory-active-fg: #c4cfdf;
+  --biu-menu-current-fg: #f1f5fb;
+  --biu-tab-fg: #9aa7b8;
+  --biu-tab-prefix-fg: #bdc8d8;
+  --biu-tab-current-fg: #f1f5fb;
+  --biu-menu-selected-bg: #203a5b;
+  --biu-menu-selected-fg: #ffffff;
+}
+.biu-menu-directory-title {
+  color: var(--biu-menu-directory-fg);
+}
+.biu-menu-directory-title[aria-expanded="true"] {
+  color: var(--biu-menu-directory-active-fg);
+}
+.biu-sidebar-layout .biu-menu-item {
+  color: #6d7a8e;
+}
+.biu-sidebar-layout .biu-menu-item-active,
+.biu-sidebar-layout .biu-menu-item-wrap-active {
+  color: var(--biu-menu-selected-fg);
+  background: var(--biu-menu-selected-bg);
+  border-color: var(--biu-brand-line);
+  box-shadow: none;
+}
+.biu-sidebar-layout .biu-menu-item-wrap-active .biu-menu-item {
+  color: inherit;
+}
+.biu-sidebar-layout .biu-menu-item-active .biu-menu-icon {
+  color: inherit;
+  background: transparent;
+}
+.biu-tabs-bar .biu-tab {
+  color: var(--biu-tab-fg);
+}
+.biu-tabs-bar .biu-tab-active {
+  color: var(--biu-tab-current-fg);
+}
+.biu-tab-path-prefix {
+  color: var(--biu-tab-prefix-fg);
+}
+.biu-tab-path-current {
+  color: var(--biu-tab-current-fg);
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item {
+  color: #bdc8d8;
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-active,
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item-wrap-active {
+  color: #ffffff;
+  background: var(--biu-menu-selected-bg);
+  border-color: #476180;
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-item:hover:not(.biu-menu-item-active),
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-menu-directory-title:hover {
+  color: #ffffff;
+  background: #243b57;
+}
+
+/* Directory icons are part of the label, not a separate visual layer. Keep
+   their foreground synchronized with the directory button in every state. */
+.biu-sidebar-layout .biu-menu-directory-title .biu-menu-icon-directory,
+.biu-multi-level-menu .biu-menu-group-rail button .biu-menu-icon {
+  color: currentColor;
+  background: transparent;
+  border-color: transparent;
+}
+
+/* The narrow first-level rail needs a denser dark surface and the same white
+   foreground contract as the right-hand menu. */
+[data-biu-theme="dark"] .biu-menu-group-rail-wrap {
+  background: #0f1827;
+}
+[data-biu-theme="dark"] .biu-menu-group-rail button:hover,
+[data-biu-theme="dark"] .biu-menu-group-rail button.biu-menu-group-active {
+  color: #ffffff;
+  background: #243b57;
+  border-color: #476180;
+}
+[data-biu-theme="dark"] .biu-menu-group-rail button.biu-menu-group-active {
+  background: #1c3657;
+}
+
+[data-biu-theme="dark"] .biu-loading,
+[data-biu-theme="dark"] .biu-empty {
+  color: #aebbd0;
+  background: var(--biu-canvas);
+}
+
+/* Menu contrast is owned by the state surface.  The leaf button has its own
+   background, so relying on the wrapper's inherited color leaves dark active
+   items with muted text.  Keep labels and the two hover actions on the same
+   foreground contract as the surface they sit on. */
+.biu-sidebar-layout .biu-menu-item-active,
+.biu-sidebar-layout .biu-menu-item-active:hover,
+.biu-sidebar-layout .biu-menu-item-active:focus-visible {
+  color: var(--biu-menu-active-fg);
+}
+.biu-sidebar-layout .biu-menu-item-wrap-active .biu-menu-item {
+  color: var(--biu-menu-active-fg);
+}
+.biu-sidebar-layout .biu-menu-item-active .biu-menu-label,
+.biu-sidebar-layout .biu-menu-item-active .biu-menu-icon,
+.biu-sidebar-layout .biu-menu-item-wrap-active .biu-menu-favorite,
+.biu-sidebar-layout .biu-menu-item-wrap-active .biu-menu-new-tab {
+  color: var(--biu-menu-active-fg);
+}
+.biu-sidebar-layout .biu-menu-item-wrap:hover .biu-menu-favorite,
+.biu-sidebar-layout .biu-menu-item-wrap:hover .biu-menu-new-tab,
+.biu-sidebar-layout .biu-menu-item-wrap:has(.biu-menu-favorite:focus-visible) .biu-menu-favorite,
+.biu-sidebar-layout .biu-menu-item-wrap:has(.biu-menu-favorite:focus-visible) .biu-menu-new-tab,
+.biu-sidebar-layout .biu-menu-item-wrap:has(.biu-menu-new-tab:focus-visible) .biu-menu-favorite,
+.biu-sidebar-layout .biu-menu-item-wrap:has(.biu-menu-new-tab:focus-visible) .biu-menu-new-tab {
+  color: var(--biu-menu-hover-fg);
+}
+.biu-sidebar-layout .biu-menu-item-wrap:hover .biu-menu-item:not(.biu-menu-item-active) {
+  color: var(--biu-menu-hover-fg);
+  background: var(--biu-menu-hover-bg);
+  border-color: var(--biu-menu-hover-border);
+}
+.biu-sidebar-layout .biu-menu-item-wrap-active:hover .biu-menu-item,
+.biu-sidebar-layout .biu-menu-item-wrap-active:hover .biu-menu-item:hover {
+  color: var(--biu-menu-active-fg);
+  background: var(--biu-menu-active-bg);
+  border-color: var(--biu-menu-active-border);
+}

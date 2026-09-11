@@ -1,0 +1,53 @@
+.biu-demo-workbar {
+  display: flex;
+  min-width: 92px;
+  max-width: 190px;
+  height: 30px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  color: #7b8798;
+  background: var(--biu-brand-soft, #f0f2f5);
+  border: 1px solid var(--biu-brand-line, #d9dee7);
+  border-radius: 3px;
+}
+.biu-demo-workbar input {
+  min-width: 0;
+  width: 100%;
+  color: var(--biu-ink, #172033);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 11px;
+}
+.biu-account-panel-form {
+  display: grid;
+  gap: 12px;
+}
+.biu-account-panel-form label {
+  display: grid;
+  gap: 5px;
+  color: var(--biu-ink-soft);
+  font-size: 12px;
+}
+.biu-account-panel-form input {
+  min-height: 35px;
+  padding: 0 9px;
+  color: var(--biu-ink);
+  background: var(--biu-canvas);
+  border: 1px solid var(--biu-line-strong);
+  border-radius: 3px;
+  outline: 0;
+}
+.biu-account-panel-form input:focus {
+  border-color: var(--biu-brand);
+}
+.biu-account-panel-form button {
+  min-height: 35px;
+  color: var(--biu-brand-mark-foreground);
+  background: var(--biu-brand);
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+}

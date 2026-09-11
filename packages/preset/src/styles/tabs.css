@@ -1,0 +1,247 @@
+/* Tabs are a compact, draggable work strip. The page area below owns all
+   remaining height; no empty host padding is reserved for an APP. */
+
+.biu-tabs-bar {
+  display: flex;
+  min-width: 0;
+  min-height: 38px;
+  height: 38px;
+  align-items: center;
+  gap: 0;
+  margin: 0;
+  padding: 0 4px;
+  background: var(--biu-canvas);
+  border-top: 1px solid var(--biu-line);
+  border-bottom: 1px solid var(--biu-line);
+}
+.biu-tabs-scroll {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 2px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.biu-tabs-scroll::-webkit-scrollbar {
+  display: none;
+}
+.biu-tab {
+  position: relative;
+  display: inline-flex;
+  min-width: 96px;
+  max-width: 190px;
+  height: 29px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 5px;
+  padding: 0 7px;
+  color: #777;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  cursor: grab;
+  font-size: 12px;
+  user-select: none;
+  touch-action: none;
+  transition:
+    color 0.16s ease,
+    background 0.16s ease,
+    border-color 0.16s ease,
+    opacity 0.16s ease;
+}
+.biu-tab:active {
+  cursor: grabbing;
+}
+.biu-tab-active {
+  color: #5f6d82;
+  background: var(--biu-brand-soft);
+  border-color: var(--biu-brand-line);
+}
+.biu-tab-dragging {
+  opacity: 0.42;
+}
+.biu-tab-drag-over {
+  border: 2px dashed var(--biu-tab-drop-border);
+}
+.biu-tab-drag-over::after {
+  position: absolute;
+  inset-block: 3px;
+  width: 2px;
+  background: var(--biu-tab-drop-border);
+  content: "";
+}
+.biu-tab-drop-before::after {
+  inset-inline-start: -3px;
+}
+.biu-tab-drop-after::after {
+  inset-inline-end: -3px;
+}
+.biu-tab-drag-handle {
+  display: inline-flex;
+  width: 13px;
+  height: 18px;
+  flex: 0 0 13px;
+  align-items: center;
+  justify-content: center;
+  color: #a8b1bf;
+}
+.biu-tab-drag-handle .biu-icon {
+  width: 11px;
+  height: 11px;
+}
+.biu-tab-main,
+.biu-tab-close {
+  color: inherit;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+.biu-tab-main {
+  display: inline-flex;
+  min-width: 0;
+  height: 100%;
+  flex: 1 1 auto;
+  align-items: center;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+}
+.biu-tab-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-tab-label-mobile {
+  display: none;
+}
+.biu-tab-close {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  place-items: center;
+  border-radius: 5px;
+  font-size: 14px;
+  line-height: 1;
+}
+.biu-tab-close:hover {
+  color: var(--biu-brand-deep);
+  background: rgb(53 104 212 / 11%);
+}
+.biu-tabs-toolbar-group {
+  display: flex;
+  min-height: 100%;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 1px;
+  margin-inline-start: 2px;
+  padding-inline: 2px;
+  background: var(--biu-canvas);
+  border-inline-start: 1px solid var(--biu-line);
+  box-shadow: none;
+}
+.biu-tabs-tool {
+  display: grid;
+  width: 26px;
+  height: 28px;
+  place-items: center;
+  color: #748196;
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.biu-tabs-tool:hover:not(:disabled) {
+  color: var(--biu-ink);
+  background: var(--biu-brand-soft);
+}
+.biu-tabs-tool:disabled {
+  display: none;
+  cursor: default;
+  opacity: 0.36;
+}
+.biu-tabs-tool .biu-icon {
+  width: 14px;
+  height: 14px;
+}
+.biu-tab-context-menu {
+  position: fixed;
+  z-index: 2147483647;
+  display: grid;
+  min-width: 176px;
+  padding: 5px;
+  color: var(--biu-ink);
+  background: var(--biu-surface);
+  border: 1px solid var(--biu-line-strong);
+  border-radius: 10px;
+  box-shadow: var(--biu-shadow-float);
+}
+.biu-tab-context-menu button {
+  min-height: 32px;
+  padding: 0 10px;
+  color: var(--biu-ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+}
+.biu-tab-context-menu button:hover {
+  color: var(--biu-brand-deep);
+  background: var(--biu-brand-soft);
+}
+.biu-tab-context-menu button:disabled {
+  color: var(--biu-muted);
+  background: transparent;
+  cursor: default;
+  opacity: 0.65;
+}
+.biu-tab-context-menu [role="separator"] {
+  height: 1px;
+  margin: 4px 5px;
+  background: var(--biu-line);
+}
+.biu-sidebar-layout .biu-tabs-bar {
+  flex: 0 0 38px;
+}
+.biu-content-app .biu-tabs-bar {
+  margin: 0;
+}
+
+@media (max-width: 520px) {
+  .biu-tab-drag-handle {
+    display: none;
+  }
+  .biu-tab {
+    min-width: 88px;
+    max-width: min(150px, 44vw);
+    gap: 3px;
+    padding-inline: 5px;
+  }
+  .biu-tab-close {
+    width: 16px;
+    flex-basis: 16px;
+  }
+  .biu-tab-label-desktop {
+    display: none;
+  }
+  .biu-tab-label-mobile {
+    display: block;
+  }
+}
+
+[data-biu-theme="dark"] .biu-tabs-bar,
+[data-biu-theme="dark"] .biu-tabs-toolbar-group {
+  background: rgb(20 29 43 / 94%);
+}
+[data-biu-theme="dark"] .biu-tabs-tool:hover:not(:disabled) {
+  background: #27354a;
+}
+[data-biu-theme="dark"] .biu-sidebar-layout .biu-tab-active {
+  color: var(--biu-ink);
+  background: #202c3e;
+  border-color: var(--biu-line-strong);
+}

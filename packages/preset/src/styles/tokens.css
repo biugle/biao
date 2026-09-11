@@ -1,0 +1,22 @@
+:root {
+  --biu-ink: #172033;
+  --biu-ink-soft: #344054;
+  --biu-muted: #8a95a7;
+  --biu-brand: #111827;
+  --biu-brand-deep: #0b1220;
+  --biu-brand-soft: #f0f2f5;
+  --biu-brand-line: #d9dee7;
+  --biu-brand-mark: #111827;
+  --biu-brand-mark-foreground: #ffffff;
+  --biu-surface: #ffffff;
+  --biu-canvas: #f7f8fa;
+  --biu-line: #e8ecf2;
+  --biu-line-strong: #dfe5ed;
+  --biu-sidebar: #ffffff;
+  --biu-sidebar-muted: #738096;
+  --biu-radius: 12px;
+  --biu-shadow: 0 10px 28px rgb(31 45 72 / 6%);
+  --biu-shadow-float: 0 18px 42px rgb(29 44 74 / 14%);
+  --biu-font:
+    Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}

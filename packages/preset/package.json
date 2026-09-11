@@ -1,0 +1,64 @@
+{
+  "name": "@biugle/biu-preset",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    "./sidebar": {
+      "types": "./dist/sidebar.d.ts",
+      "import": "./dist/sidebar.js"
+    },
+    "./topbar": {
+      "types": "./dist/topbar.d.ts",
+      "import": "./dist/topbar.js"
+    },
+    "./blank": {
+      "types": "./dist/blank.d.ts",
+      "import": "./dist/blank.js"
+    },
+    "./dashboard": {
+      "types": "./dist/dashboard.d.ts",
+      "import": "./dist/dashboard.js"
+    },
+    "./mobile": {
+      "types": "./dist/mobile.d.ts",
+      "import": "./dist/mobile.js"
+    },
+    "./custom": {
+      "types": "./dist/custom.d.ts",
+      "import": "./dist/custom.js"
+    },
+    "./toolbar": {
+      "types": "./dist/toolbar.d.ts",
+      "import": "./dist/toolbar.js"
+    },
+    "./sidebar.css": "./dist/sidebar.css",
+    "./topbar.css": "./dist/topbar.css",
+    "./blank.css": "./dist/blank.css",
+    "./dashboard.css": "./dist/dashboard.css",
+    "./mobile.css": "./dist/mobile.css",
+    "./custom.css": "./dist/custom.css"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/sidebar.tsx src/topbar.tsx src/blank.tsx src/dashboard.tsx src/mobile.tsx src/custom.tsx src/toolbar.tsx --format esm --dts --clean",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@biugle/biu-runtime": "workspace:*",
+    "@biugle/biu-ui": "workspace:*",
+    "lucide-react": "^1.44.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  }
+}

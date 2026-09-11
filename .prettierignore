@@ -1,0 +1,13 @@
+**/node_modules/
+**/dist/
+**/.biu/
+**/.pnpm-store/
+**/coverage/
+**/playwright-report/
+**/test-results/
+**/pnpm-lock.yaml
+**/.husky/_/
+.git/
+.scenario-work/
+*.tgz
+*.log

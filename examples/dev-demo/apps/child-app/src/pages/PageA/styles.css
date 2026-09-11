@@ -1,0 +1,109 @@
+.demo-page-a {
+  min-height: 100%;
+  padding: 28px;
+  color: #172033;
+  background: linear-gradient(145deg, #fff, #f6f7f9);
+}
+.demo-page-eyebrow {
+  margin: 0 0 8px;
+  color: #64748b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.demo-page-a h1 {
+  margin: 0 0 10px;
+  color: #111827;
+  font-size: clamp(24px, 3vw, 32px);
+  letter-spacing: -0.04em;
+}
+.demo-page-a > p:not(.demo-page-eyebrow) {
+  max-width: 680px;
+  color: #64748b;
+  line-height: 1.75;
+}
+.demo-context-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 24px 0;
+}
+.demo-context-grid div {
+  min-width: 0;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+}
+.demo-context-grid dt {
+  color: #94a3b8;
+  font-size: 11px;
+}
+.demo-context-grid dd {
+  margin: 6px 0 0;
+  overflow: hidden;
+  color: #111827;
+  font-size: 13px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.demo-page-a button {
+  min-height: 36px;
+  padding: 0 14px;
+  color: #fff;
+  background: #111827;
+  border: 1px solid #111827;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.demo-page-a button:hover {
+  background: #263244;
+}
+.demo-drawer-mask {
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  background: rgb(15 23 42 / 32%);
+}
+.demo-drawer {
+  position: fixed;
+  z-index: 21;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 88vw);
+  padding: 28px;
+  background: #fff;
+  box-shadow: -12px 0 28px rgb(15 23 42 / 18%);
+}
+.demo-drawer h2 {
+  margin: 0 0 12px;
+}
+@media (max-width: 680px) {
+  .demo-page-a {
+    padding: 20px;
+  }
+  .demo-context-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 420px) {
+  .demo-context-grid {
+    grid-template-columns: 1fr;
+  }
+}
+[data-biu-theme="dark"] .demo-page-a {
+  color: #e5e7eb;
+  background: linear-gradient(145deg, #141921, #1a202b);
+}
+[data-biu-theme="dark"] .demo-page-a h1,
+[data-biu-theme="dark"] .demo-context-grid dd {
+  color: #f9fafb;
+}
+[data-biu-theme="dark"] .demo-context-grid div,
+[data-biu-theme="dark"] .demo-drawer {
+  background: #1d2530;
+  border-color: #344050;
+}

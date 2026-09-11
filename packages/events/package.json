@@ -1,0 +1,27 @@
+{
+  "name": "@biugle/biu-events",
+  "version": "0.1.0",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts --clean",
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.3"
+  }
+}

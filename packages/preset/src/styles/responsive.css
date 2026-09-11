@@ -1,0 +1,841 @@
+/* Responsive rules are intentionally kept in one ordered file. The sidebar
+   stays readable on narrow screens; icon-only mode is an explicit user action. */
+
+.biu-topbar .biu-header {
+  min-height: 64px;
+  gap: 0;
+}
+.biu-topbar .biu-header-spacer {
+  display: none;
+}
+.biu-topbar .biu-navigation-rail {
+  min-width: 0;
+}
+.biu-topbar .biu-header-actions-rail-right {
+  min-width: 0;
+}
+.biu-navigation-rail {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 0;
+  padding-inline: 4px;
+}
+.biu-navigation-viewport {
+  min-width: 0;
+  flex: 1 1 auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.biu-navigation-viewport::-webkit-scrollbar {
+  display: none;
+}
+.biu-navigation-scroll-control {
+  display: grid;
+  width: 24px;
+  height: 30px;
+  flex: 0 0 24px;
+  place-items: center;
+  color: var(--biu-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.biu-navigation-scroll-control:hover:not(:disabled) {
+  color: var(--biu-ink);
+  background: var(--biu-brand-soft);
+}
+.biu-navigation-scroll-control:disabled {
+  visibility: hidden;
+  cursor: default;
+}
+.biu-navigation-scroll-control .biu-icon {
+  width: 13px;
+  height: 13px;
+}
+.biu-topbar .biu-top-navigation {
+  display: flex;
+  min-width: max-content;
+  align-items: center;
+  gap: 3px;
+}
+.biu-topbar .biu-top-navigation .biu-menu-item-wrap {
+  width: auto;
+  max-width: 180px;
+  flex: 0 0 auto;
+}
+.biu-topbar .biu-top-navigation .biu-menu-item-wrap .biu-menu-item {
+  width: 100%;
+  max-width: 180px;
+  flex: 0 1 auto;
+}
+.biu-topbar .biu-top-navigation .biu-top-menu-directory {
+  width: auto;
+  min-width: 84px;
+  max-width: 180px;
+  flex: 0 1 auto;
+}
+.biu-topbar .biu-top-navigation .biu-menu-item,
+.biu-topbar .biu-top-navigation .biu-menu-directory-title {
+  width: auto;
+  min-width: 84px;
+  max-width: 180px;
+  min-height: 34px;
+  color: #69778d;
+  white-space: nowrap;
+}
+.biu-topbar .biu-top-navigation .biu-menu-label {
+  width: auto;
+  min-width: 0;
+  flex: 0 1 auto;
+  max-width: 180px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-topbar .biu-top-navigation .biu-menu-item-active {
+  position: relative;
+  color: var(--biu-brand-deep);
+  background: transparent;
+  border-color: transparent;
+  border-radius: 0;
+  box-shadow: none;
+}
+.biu-topbar .biu-top-navigation .biu-menu-item-active::after {
+  position: absolute;
+  right: 8px;
+  bottom: -1px;
+  left: 8px;
+  height: 2px;
+  background: var(--biu-brand);
+  content: "";
+}
+.biu-topbar .biu-top-navigation .biu-menu-item-active:hover {
+  color: var(--biu-brand-deep);
+  background: var(--biu-brand-soft);
+  border-color: transparent;
+}
+.biu-topbar .biu-top-navigation .biu-menu-icon {
+  width: 22px;
+  height: 22px;
+  color: currentColor;
+  background: transparent;
+  border-color: transparent;
+}
+.biu-topbar .biu-topbar-menu {
+  display: none;
+}
+
+.biu-blank {
+  display: grid;
+  place-items: center;
+  background: var(--biu-canvas);
+}
+.biu-blank .biu-content {
+  width: min(1180px, 100%);
+  padding: 40px;
+}
+.biu-blank .biu-page-content {
+  min-height: auto;
+  box-shadow: none;
+}
+.biu-dashboard .biu-page-content {
+  background: linear-gradient(145deg, var(--biu-surface), var(--biu-canvas));
+}
+.biu-mobile .biu-header {
+  min-height: 58px;
+  padding-inline: 16px;
+}
+.biu-mobile .biu-header-actions {
+  display: none;
+}
+.biu-mobile .biu-brand {
+  min-width: 0;
+}
+.biu-mobile .biu-content {
+  padding: 15px 15px 78px;
+}
+.biu-mobile .biu-page-content {
+  padding: 18px;
+}
+.biu-mobile-menu {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 4;
+  padding: 7px 9px;
+  background: rgb(255 255 255 / 96%);
+  border-top: 1px solid var(--biu-line);
+  box-shadow: 0 -6px 18px rgb(31 45 72 / 7%);
+  backdrop-filter: blur(12px);
+}
+.biu-mobile-menu .biu-top-navigation {
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.biu-mobile-menu .biu-top-navigation::-webkit-scrollbar {
+  display: none;
+}
+.biu-mobile-menu .biu-menu-item {
+  display: grid;
+  min-width: 92px;
+  min-height: 54px;
+  flex: 0 0 auto;
+  justify-items: center;
+  gap: 3px;
+  padding: 4px 12px;
+  color: var(--biu-muted);
+  font-size: 10px;
+}
+.biu-mobile-menu .biu-menu-icon {
+  width: 22px;
+  height: 22px;
+  color: currentColor;
+  background: transparent;
+  border-color: transparent;
+}
+.biu-mobile-menu .biu-menu-item-active {
+  color: var(--biu-brand);
+  background: var(--biu-brand-soft);
+  border-color: transparent;
+  box-shadow: none;
+}
+
+@media (max-width: 1100px) {
+  .biu-topbar .biu-header {
+    grid-template-columns:
+      minmax(132px, auto) max-content minmax(0, auto) minmax(0, 65fr) minmax(max-content, 35fr)
+      max-content;
+  }
+  .biu-topbar .biu-brand {
+    min-width: 132px;
+  }
+}
+
+@media (max-width: 900px) {
+  .biu-header {
+    padding-inline: 16px;
+  }
+  .biu-brand {
+    min-width: 160px;
+  }
+  .biu-content {
+    padding: 17px;
+  }
+  .biu-topbar .biu-header {
+    padding-inline: 8px;
+    grid-template-columns:
+      minmax(118px, auto) max-content minmax(0, auto) minmax(0, 65fr) minmax(max-content, 35fr)
+      max-content;
+  }
+  .biu-topbar .biu-brand {
+    min-width: 118px;
+  }
+}
+
+@media (max-width: 760px) {
+  .biu-portal-workbar,
+  .biu-topbar .biu-topbar-workbar {
+    display: none;
+  }
+  .biu-brand {
+    min-width: 150px;
+  }
+  .biu-action-text {
+    display: none;
+  }
+  .biu-header-action {
+    min-width: 0;
+    padding-inline: 8px;
+  }
+  .biu-user-name {
+    display: none;
+  }
+  .biu-topbar .biu-header {
+    grid-template-columns: minmax(104px, auto) minmax(0, auto) minmax(0, auto) minmax(0, 7fr) max-content auto;
+    padding-inline: 6px;
+  }
+  .biu-topbar .biu-portal-workbar {
+    max-width: 120px;
+  }
+  .biu-topbar .biu-brand {
+    min-width: 120px;
+  }
+  .biu-topbar .biu-brand-copy {
+    display: none;
+  }
+  .biu-topbar .biu-system-switch {
+    width: auto;
+    min-width: 0;
+    max-width: 112px;
+    margin-left: 4px;
+  }
+  .biu-topbar .biu-system-switch .biu-system-label {
+    display: inline-flex;
+  }
+  .biu-topbar .biu-header-leading-actions {
+    margin-inline-end: 2px;
+  }
+  .biu-topbar .biu-header-user-area {
+    margin-inline-start: 2px;
+  }
+  .biu-topbar .biu-header-action-search,
+  .biu-topbar .biu-header-action-notification,
+  .biu-topbar .biu-header-action-theme {
+    width: 36px;
+    min-width: 0;
+    flex-basis: 36px;
+    padding-inline: 6px;
+  }
+  .biu-header-actions-rail-right {
+    min-width: 0;
+    max-width: 36px;
+    flex: 0 1 auto;
+  }
+  .biu-header-actions-rail-right .biu-header-actions {
+    min-width: 0;
+    max-width: 36px;
+    flex: 0 1 auto;
+    overflow: hidden;
+  }
+  .biu-header-actions-rail-right .biu-header-action-locale,
+  .biu-header-actions-rail-right .biu-header-action-timezone,
+  .biu-header-actions-rail-right .biu-header-action-direction,
+  .biu-header-actions-rail-right .biu-header-action-theme {
+    display: none;
+  }
+  .biu-header-actions-rail-right .biu-compact-actions-trigger {
+    display: inline-flex;
+    width: 36px;
+    min-width: 0;
+    max-width: 36px;
+    flex: 0 0 36px;
+    padding-inline: 6px;
+  }
+}
+
+@media (max-width: 520px) {
+  .biu-topbar .biu-header {
+    grid-template-columns: minmax(104px, 104px) minmax(0, auto) minmax(0, auto) minmax(0, 7fr) max-content auto;
+  }
+  .biu-topbar .biu-portal-workbar {
+    max-width: 104px;
+  }
+  .biu-topbar .biu-brand {
+    min-width: 104px;
+    max-width: 104px;
+    gap: 2px;
+    overflow: hidden;
+  }
+  .biu-topbar .biu-brand-mark {
+    width: 30px;
+    height: 30px;
+    flex-basis: 30px;
+  }
+  .biu-topbar .biu-system-switch {
+    min-width: 0;
+    max-width: 94px;
+    margin-left: 0;
+    padding-inline: 3px;
+  }
+  .biu-topbar .biu-system-switch {
+    justify-content: flex-start;
+  }
+  .biu-topbar .biu-header-action-search,
+  .biu-topbar .biu-header-action-notification {
+    width: 32px;
+    min-width: 0;
+    flex-basis: 32px;
+    padding-inline: 4px;
+  }
+  .biu-topbar .biu-navigation-scroll-control {
+    width: 20px;
+    flex-basis: 20px;
+  }
+  .biu-topbar .biu-header-actions-rail-right {
+    min-width: 0;
+    max-width: 36px;
+  }
+  .biu-topbar .biu-header-actions-rail-right .biu-scroll-control {
+    display: grid;
+    width: 20px;
+    flex-basis: 20px;
+  }
+  .biu-topbar .biu-header-actions-rail-right .biu-header-actions {
+    gap: 2px;
+    padding-inline: 0;
+  }
+  .biu-topbar .biu-top-navigation .biu-menu-item,
+  .biu-topbar .biu-top-navigation .biu-menu-directory-title {
+    min-width: 72px;
+    max-width: 112px;
+  }
+}
+
+@media (max-width: 390px) {
+  .biu-topbar .biu-header {
+    grid-template-columns: minmax(96px, 96px) minmax(0, auto) minmax(0, auto) minmax(0, 7fr) max-content auto;
+  }
+  .biu-topbar .biu-portal-workbar {
+    max-width: 96px;
+  }
+  .biu-topbar .biu-brand {
+    min-width: 96px;
+    max-width: 96px;
+  }
+  .biu-topbar .biu-brand-mark {
+    width: 26px;
+    height: 26px;
+    flex-basis: 26px;
+  }
+  .biu-topbar .biu-system-switch {
+    min-width: 0;
+    max-width: 84px;
+    padding-inline: 2px;
+  }
+  .biu-topbar .biu-header-actions-rail-right {
+    min-width: 0;
+    max-width: 36px;
+  }
+  .biu-topbar .biu-header-actions-rail-right .biu-scroll-control {
+    width: 18px;
+    flex-basis: 18px;
+  }
+  .biu-topbar .biu-navigation-scroll-control {
+    width: 18px;
+    flex-basis: 18px;
+  }
+  .biu-topbar .biu-header-action-user {
+    width: 42px;
+    min-width: 0;
+    flex-basis: 42px;
+    padding-inline: 4px;
+  }
+}
+
+@media (max-width: 760px) {
+  .biu-header-actions .biu-header-action {
+    width: 36px;
+    min-width: 0;
+    flex-basis: 36px;
+    padding-inline: 6px;
+    gap: 0;
+  }
+  .biu-header-actions .biu-action-text {
+    display: none;
+  }
+  .biu-header-action-locale > .biu-icon:last-child,
+  .biu-header-action-timezone > .biu-icon:last-child,
+  .biu-header-action-direction > .biu-icon:last-child {
+    display: none;
+  }
+  .biu-header-actions-rail-right {
+    min-width: 0;
+    max-width: 36px;
+  }
+  .biu-header-actions-rail-right .biu-scroll-control {
+    display: grid;
+    width: 20px;
+    flex-basis: 20px;
+  }
+  .biu-header-actions-rail-right .biu-header-actions {
+    min-width: 0;
+    gap: 2px;
+    padding-inline: 0;
+  }
+}
+
+@media (max-width: 700px) {
+  .biu-sidebar-layout .biu-header {
+    padding-inline: 8px;
+  }
+  .biu-sidebar-layout .biu-header-actions-rail-right {
+    display: flex;
+    gap: 2px;
+    width: fit-content;
+    max-width: 36px;
+    flex: 0 1 auto;
+  }
+  .biu-sidebar-layout .biu-header-actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: 6px;
+    overflow-x: auto;
+  }
+  .biu-sidebar-layout .biu-header-action {
+    min-width: 0;
+    width: auto;
+    padding-inline: 7px;
+  }
+  .biu-sidebar-layout .biu-header-action-search,
+  .biu-sidebar-layout .biu-header-action-notification,
+  .biu-sidebar-layout .biu-header-action-theme {
+    width: 36px;
+    min-width: 0;
+    flex-basis: 36px;
+    padding-inline: 6px;
+  }
+  .biu-sidebar-layout .biu-sidebar {
+    width: 220px;
+    flex-basis: 220px;
+    padding-inline: 0;
+  }
+  .biu-sidebar-layout .biu-sidebar .biu-menu-label,
+  .biu-sidebar-layout .biu-sidebar .biu-menu-chevron {
+    display: inline-flex;
+  }
+  .biu-sidebar-layout .biu-sidebar .biu-menu-directory-title,
+  .biu-sidebar-layout .biu-sidebar .biu-menu-item {
+    justify-content: flex-start;
+    padding-inline-start: 4px;
+  }
+  .biu-sidebar-layout .biu-sidebar .biu-menu-directory-title {
+    padding-inline-end: 4px;
+  }
+  .biu-sidebar-layout .biu-sidebar .biu-menu-item {
+    padding-inline-end: 62px;
+  }
+  .biu-sidebar-layout .biu-sidebar .biu-menu-children {
+    margin-inline-start: 4px;
+    padding-inline-start: 3px;
+    border-inline-start: 1px solid #e8edf4;
+  }
+  .biu-sidebar-layout .biu-sidebar-brand .biu-brand-copy,
+  .biu-sidebar-layout .biu-sidebar-brand .biu-system-switch {
+    display: inline-flex;
+  }
+  .biu-sidebar-layout .biu-content {
+    padding: 0;
+  }
+  .biu-sidebar-layout .biu-breadcrumb {
+    margin-inline: 0;
+    padding-inline: 12px;
+  }
+  .biu-sidebar-layout .biu-tabs-bar {
+    margin-inline: 0;
+    padding-inline: 4px;
+  }
+}
+
+@media (max-width: 760px) {
+  .biu-tabs-toolbar-group:not(.biu-tabs-scroll-tools) {
+    display: none;
+  }
+  .biu-sidebar-footer {
+    gap: 0;
+    padding-inline: 2px;
+  }
+  .biu-sidebar-footer .biu-header-action,
+  .biu-sidebar-footer .biu-sidebar-footer-action {
+    width: 30px;
+    min-width: 30px;
+    flex: 0 0 30px;
+    padding-inline: 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .biu-sidebar-layout .biu-sidebar {
+    width: 208px;
+    flex-basis: 208px;
+  }
+  .biu-sidebar-layout .biu-sidebar-brand .biu-brand-copy {
+    display: none;
+  }
+  .biu-sidebar-layout .biu-sidebar-brand .biu-system-switch {
+    display: inline-flex;
+    min-width: 0;
+    max-width: 126px;
+  }
+  .biu-sidebar-layout .biu-header-action {
+    min-width: 0;
+    padding-inline: 6px;
+  }
+  .biu-sidebar-layout .biu-header-action-search,
+  .biu-sidebar-layout .biu-header-action-notification,
+  .biu-sidebar-layout .biu-header-action-theme {
+    width: 36px;
+    min-width: 0;
+    flex-basis: 36px;
+    padding-inline: 6px;
+  }
+  .biu-sidebar-layout .biu-tabs-bar {
+    padding-inline: 4px;
+  }
+  .biu-tab {
+    min-width: 88px;
+  }
+}
+
+@media (max-width: 520px) {
+  .biu-tabs-bar {
+    padding-inline: 4px;
+  }
+  .biu-tab {
+    min-width: 88px;
+    max-width: 142px;
+  }
+  .biu-tab-label {
+    max-width: 86px;
+  }
+}
+
+@media (max-width: 390px) {
+  .biu-sidebar-layout .biu-header {
+    padding-inline: 6px;
+  }
+  .biu-sidebar-layout .biu-sidebar {
+    width: 196px;
+    flex-basis: 196px;
+  }
+  .biu-sidebar-layout .biu-header-action {
+    min-width: 0;
+    padding-inline: 6px;
+  }
+  .biu-sidebar-layout .biu-header-action-search,
+  .biu-sidebar-layout .biu-header-action-notification,
+  .biu-sidebar-layout .biu-header-action-theme {
+    width: 36px;
+    min-width: 0;
+    flex-basis: 36px;
+    padding-inline: 6px;
+  }
+  .biu-sidebar-layout .biu-user-avatar {
+    width: 22px;
+    height: 22px;
+    min-width: 22px;
+    flex-basis: 22px;
+  }
+}
+
+/* An explicit collapse always wins over the readable narrow-screen rail. */
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar-brand .biu-brand-copy,
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar-brand .biu-system-switch,
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar .biu-menu-label,
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar .biu-menu-chevron {
+  display: none;
+}
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar .biu-menu-item-collapsed-icon {
+  display: grid;
+}
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar .biu-menu-directory-title,
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar .biu-menu-item {
+  justify-content: center;
+  padding-inline: 0;
+}
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar .biu-menu-item-wrap .biu-menu-item {
+  padding-inline: 0;
+}
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar .biu-menu-children {
+  margin-inline: 0;
+  padding-inline: 0;
+  border-inline: 0;
+}
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar-footer {
+  min-height: 42px;
+  flex-basis: 42px;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding-inline: 0;
+}
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar-footer .biu-menu-settings-trigger,
+.biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar-footer .biu-header-action-search {
+  width: 32px;
+  min-width: 32px;
+}
+
+/* Remote APP content owns the entire remaining viewport at every breakpoint. */
+.biu-sidebar-layout .biu-content,
+.biu-sidebar-layout .biu-content-app,
+.biu-sidebar-layout .biu-page-content-app {
+  padding: 0;
+}
+.biu-content.biu-content-app {
+  padding: 0;
+}
+.biu-sidebar-layout .biu-content > .biu-tabs-bar {
+  height: 38px;
+  min-height: 38px;
+  flex-basis: 38px;
+  margin-bottom: 0;
+}
+.biu-sidebar-layout .biu-page-content-app {
+  margin: 0 !important;
+}
+
+/* Final narrow-screen contract: the action rail becomes one predictable
+   compact trigger. Earlier breakpoint rules intentionally keep desktop/tablet
+   spacing, while these rules prevent them from re-expanding the rail below
+   phone width. */
+@media (max-width: 760px) {
+  .biu-header-actions-rail-right,
+  .biu-topbar .biu-header-actions-rail-right {
+    width: auto;
+    min-width: 0;
+    max-width: 36px;
+    flex: 0 1 auto;
+    gap: 0;
+  }
+  .biu-header-actions-rail-right > .biu-scroll-control {
+    display: none;
+  }
+  .biu-header-actions-rail-right .biu-header-actions,
+  .biu-topbar .biu-header-actions-rail-right .biu-header-actions {
+    width: auto;
+    min-width: 0;
+    max-width: 36px;
+    flex: 0 1 auto;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
+    overflow: visible;
+  }
+  .biu-header-actions-rail-right .biu-header-action-locale,
+  .biu-header-actions-rail-right .biu-header-action-timezone,
+  .biu-header-actions-rail-right .biu-header-action-direction,
+  .biu-header-actions-rail-right .biu-header-action-theme {
+    display: none;
+  }
+  .biu-header-actions-rail-right .biu-compact-actions-trigger {
+    display: inline-flex;
+    width: 36px;
+    min-width: 0;
+    max-width: 36px;
+    flex: 0 0 36px;
+    margin-inline: 0;
+    padding-inline: 6px;
+  }
+  .biu-sidebar-layout .biu-sidebar .biu-menu-item-wrap .biu-menu-item {
+    padding-inline-end: 62px;
+  }
+}
+
+@media (max-width: 520px) {
+  .biu-breadcrumb {
+    display: none;
+  }
+  .biu-breadcrumb-path {
+    width: 0;
+    max-width: 100%;
+    flex: 1 1 auto;
+  }
+  .biu-breadcrumb .biu-breadcrumb-current {
+    display: inline;
+    width: auto;
+    min-width: 0;
+    max-width: none;
+    flex: 0 0 auto;
+    overflow: visible;
+  }
+  .biu-breadcrumb-portal {
+    min-width: 0;
+    max-width: 76px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Menu labels must remain a shrinkable flex item at every sidebar width. */
+.biu-sidebar-layout .biu-sidebar .biu-menu-label {
+  display: block;
+  width: 0;
+  min-width: 0;
+  max-width: 100%;
+  flex: 1 1 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Desktop topbar: menu entries use their content width up to one readable
+   maximum. Only the navigation rail may shrink; labels then ellipsize inside
+   their own item instead of losing space while there is room beside them. */
+.biu-topbar .biu-top-navigation {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+.biu-topbar .biu-top-navigation > .biu-menu-item-wrap,
+.biu-topbar .biu-top-navigation > .biu-top-menu-directory {
+  width: fit-content;
+  min-width: 0;
+  max-width: 220px;
+  flex: 0 1 auto;
+}
+.biu-topbar .biu-top-navigation > .biu-menu-item-wrap .biu-menu-item,
+.biu-topbar .biu-top-navigation > .biu-top-menu-directory {
+  width: fit-content;
+  min-width: 0;
+  max-width: 220px;
+  padding-inline: 10px;
+}
+.biu-topbar .biu-top-navigation > .biu-menu-item-wrap .biu-menu-item {
+  flex: 0 1 auto;
+}
+.biu-topbar .biu-top-navigation > .biu-menu-item-wrap .biu-menu-label,
+.biu-topbar .biu-top-navigation > .biu-top-menu-directory .biu-menu-label {
+  display: block;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .biu-topbar .biu-navigation-rail {
+    display: none;
+  }
+  .biu-topbar .biu-topbar-menu-trigger {
+    display: inline-flex;
+    width: 36px;
+    min-width: 36px;
+    max-width: 36px;
+    grid-column: 4;
+    justify-self: start;
+    padding-inline: 6px;
+  }
+}
+
+@media (max-width: 520px) {
+  .biu-sidebar-footer {
+    display: flex;
+    width: 100%;
+    gap: 0;
+    padding-inline: 2px;
+    overflow: hidden;
+  }
+  .biu-sidebar-footer .biu-header-action,
+  .biu-sidebar-footer .biu-sidebar-footer-action {
+    width: 30px;
+    min-width: 30px;
+    max-width: 34px;
+    justify-self: center;
+    padding-inline: 0;
+  }
+  .biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar-footer {
+    display: flex;
+    padding-inline: 0;
+  }
+  .biu-sidebar-layout.biu-sidebar-collapsed .biu-sidebar-footer-action {
+    width: 32px;
+    min-width: 32px;
+  }
+  .biu-sidebar-layout .biu-menu-item-wrap .biu-menu-item {
+    padding-inline-end: 64px;
+  }
+}
+
+@media (max-width: 520px) {
+  .biu-topbar .biu-header-actions-rail-right {
+    min-width: 0;
+    max-width: 36px;
+  }
+}

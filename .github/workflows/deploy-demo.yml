@@ -1,0 +1,34 @@
+name: Build demos for Vercel Git deployment
+
+on:
+  workflow_dispatch:
+  push:
+    branches: ["main", "master"]
+
+concurrency:
+  group: biu-demo-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9.14.4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build:demo:all
+      - uses: actions/upload-artifact@v4
+        with:
+          name: biu-demo-dist
+          path: |
+            examples/dev-demo/apps/*/dist
+            !examples/dev-demo/apps/*/dist/**/*.map
