@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 96" role="img" aria-labelledby="title desc">
+  <title id="title">biu</title>
+  <desc id="desc">biu frontend foundation: a B inside a browser shell with an open application flow</desc>
+  <rect width="360" height="96" rx="20" fill="#111111"/>
+  <g fill="none" stroke="#ffffff" stroke-linecap="round" stroke-linejoin="round" stroke-width="7">
+    <path d="M70 36V24c0-4.4-3.6-8-8-8H22c-4.4 0-8 3.6-8 8v48c0 4.4 3.6 8 8 8h40c4.4 0 8-3.6 8-8V60"/>
+    <path d="M14 34h56"/>
+    <path d="M70 48h16M86 42h10M86 54h10"/>
+  </g>
+  <circle cx="25" cy="24" r="3" fill="#ffffff"/>
+  <circle cx="37" cy="24" r="3" fill="#ffffff"/>
+  <text x="31" y="67" fill="#3b82f6" font-family="Arial,sans-serif" font-size="35" font-weight="700">B</text>
+  <text x="112" y="60" fill="#ffffff" font-family="Inter,Arial,sans-serif" font-size="42" font-weight="700" letter-spacing="1">biu</text>
+</svg>

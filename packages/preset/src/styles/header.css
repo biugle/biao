@@ -1,0 +1,993 @@
+/* Header, brand identity, global actions and body-mounted popovers. */
+
+.biu-header {
+  position: relative;
+  z-index: 5;
+  display: flex;
+  min-width: 0;
+  min-height: 62px;
+  align-items: center;
+  padding: 0 22px;
+  color: var(--biu-ink);
+  background: rgb(255 255 255 / 96%);
+  border-bottom: 1px solid var(--biu-line);
+  box-shadow: 0 2px 14px rgb(33 49 80 / 4%);
+}
+
+.biu-brand {
+  display: inline-flex;
+  min-width: 196px;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 9px;
+}
+.biu-brand-mark {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  color: var(--biu-brand-mark-foreground);
+  background: var(--biu-brand-mark);
+  border: 1px solid rgb(21 29 45 / 12%);
+  border-radius: 10px;
+  box-shadow: 0 7px 16px rgb(53 104 212 / 20%);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+.biu-brand-copy {
+  display: grid;
+  min-width: 84px;
+  gap: 1px;
+}
+.biu-brand-copy strong {
+  overflow: hidden;
+  color: var(--biu-ink);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-brand-copy small {
+  overflow: hidden;
+  color: var(--biu-muted);
+  font-size: 10px;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-system-switch {
+  width: fit-content;
+  min-width: 0;
+  max-width: 140px;
+  flex: 0 1 auto;
+  margin-left: 8px;
+  border-left: 1px solid var(--biu-line);
+  border-radius: 0;
+}
+.biu-system-label {
+  display: flex;
+  min-width: 0;
+  max-width: 132px;
+  align-items: center;
+  overflow: hidden;
+  line-height: 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.biu-icon {
+  width: 16px;
+  height: 16px;
+  flex: 0 0 16px;
+}
+.biu-icon-wrap {
+  position: relative;
+  display: inline-flex;
+}
+.biu-notification-dot {
+  position: absolute;
+  top: -2px;
+  right: -3px;
+  width: 6px;
+  height: 6px;
+  background: #e25563;
+  border: 1px solid #fff;
+  border-radius: 50%;
+}
+
+.biu-header-leading-actions {
+  display: flex;
+  min-width: 0;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 2px;
+  margin-inline: 0 8px;
+}
+.biu-header-custom-slot {
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+}
+.biu-header-leading-cluster {
+  display: flex;
+  min-width: 0;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: 2px;
+}
+.biu-portal-workbar {
+  display: flex;
+  min-width: 0;
+  max-width: 220px;
+  flex: 0 1 auto;
+  align-items: center;
+  overflow: hidden;
+}
+.biu-portal-workbar > * {
+  min-width: 0;
+  max-width: 100%;
+}
+.biu-header-spacer {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+.biu-header-actions {
+  display: flex;
+  min-width: 0;
+  width: auto;
+  max-width: 100%;
+  flex: 0 1 auto;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 6px;
+  margin-left: auto;
+  padding-inline: 4px 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+  color: var(--biu-muted);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.biu-header-actions::-webkit-scrollbar {
+  display: none;
+}
+.biu-header-actions-rail {
+  display: flex;
+  min-width: 0;
+  max-width: 100%;
+  flex: 0 1 auto;
+  align-items: center;
+  gap: 2px;
+  margin-inline-start: auto;
+}
+.biu-header-actions-rail-right {
+  width: fit-content;
+  min-width: 0;
+  max-width: min(30vw, 360px);
+  flex: 0 1 auto;
+}
+.biu-header-actions-rail-custom {
+  width: fit-content;
+  min-width: 0;
+  max-width: min(20vw, 280px);
+  flex: 0 1 auto;
+  margin-inline-start: 2px;
+}
+.biu-header-actions-rail-custom .biu-header-actions {
+  max-width: 100%;
+}
+.biu-header-actions-rail-right .biu-header-actions {
+  flex: 0 1 auto;
+}
+.biu-header-user-area {
+  display: flex;
+  min-width: 0;
+  max-width: 160px;
+  flex: 0 1 auto;
+  align-items: center;
+  margin-inline-start: 2px;
+  overflow: hidden;
+}
+.biu-scroll-control {
+  display: grid;
+  width: 22px;
+  height: 30px;
+  flex: 0 0 22px;
+  place-items: center;
+  color: var(--biu-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.biu-scroll-control:hover:not(:disabled) {
+  color: var(--biu-ink);
+  background: var(--biu-brand-soft);
+}
+.biu-scroll-control:disabled {
+  visibility: hidden;
+  cursor: default;
+}
+.biu-scroll-control .biu-icon {
+  width: 13px;
+  height: 13px;
+}
+.biu-header-action {
+  position: relative;
+  display: inline-flex;
+  width: auto;
+  min-width: 0;
+  min-height: 36px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  margin-inline: 2px;
+  padding-inline: 10px;
+  color: #738096;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+  transition:
+    color 0.16s ease,
+    background 0.16s ease,
+    border-color 0.16s ease;
+}
+.biu-header-action:hover,
+.biu-header-action-active {
+  color: var(--biu-brand-deep);
+  background: var(--biu-brand-soft);
+  border-color: var(--biu-brand-line);
+}
+.biu-header-action-locale > .biu-icon:last-child,
+.biu-header-action-timezone > .biu-icon:last-child,
+.biu-header-action-direction > .biu-icon:last-child,
+.biu-system-switch > .biu-icon:last-child {
+  width: 11px;
+  height: 11px;
+  margin-inline-start: 3px;
+  color: #9aa5b5;
+}
+.biu-system-switch > .biu-icon:last-child {
+  width: 13px;
+  height: 13px;
+}
+.biu-header-action .biu-icon {
+  width: 16px;
+  height: 16px;
+}
+.biu-header-action.biu-system-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+.biu-header-action.biu-system-switch .biu-system-label {
+  flex: 1 1 auto;
+}
+.biu-header-action-search,
+.biu-header-action-notification,
+.biu-header-action-theme {
+  width: 36px;
+  min-width: 0;
+  min-height: 36px;
+  flex: 0 0 36px;
+  padding-inline: 6px;
+}
+.biu-header-action-search .biu-action-text,
+.biu-header-action-notification .biu-action-text,
+.biu-header-action-theme .biu-action-text {
+  display: none;
+}
+.biu-header-action-locale,
+.biu-header-action-timezone,
+.biu-header-action-direction {
+  min-width: 0;
+  max-width: 140px;
+  padding-inline: 8px;
+}
+.biu-header-action-user {
+  min-width: 0;
+  max-width: 160px;
+}
+.biu-compact-actions-trigger {
+  display: none;
+}
+.biu-user-avatar {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  flex: 0 0 auto;
+  aspect-ratio: 1 / 1;
+  place-items: center;
+  color: #fff;
+  background: linear-gradient(145deg, #6b86c9, #455f9c);
+  border: 2px solid #e7edff;
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 800;
+}
+.biu-user-avatar-large {
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  flex-basis: 30px;
+  font-size: 12px;
+}
+.biu-user-name {
+  max-width: 82px;
+  overflow: hidden;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-time-value,
+.biu-direction-value {
+  color: #6f7b8f;
+  font-variant-numeric: tabular-nums;
+}
+.biu-time-value {
+  text-align: center;
+}
+.biu-direction-value {
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
+.biu-header-leading {
+  display: flex;
+  min-width: 0;
+  flex: 0 0 auto;
+  align-items: center;
+  margin-right: 0;
+}
+.biu-sidebar-header-control {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  color: #718096;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.biu-sidebar-header-control:hover {
+  color: var(--biu-ink);
+  background: var(--biu-brand-soft);
+}
+.biu-sidebar-header-control .biu-icon {
+  width: 16px;
+  height: 16px;
+}
+
+.biu-header-popover {
+  position: fixed;
+  z-index: 2147483647;
+  min-width: 208px;
+  max-width: min(320px, calc(100vw - 16px));
+  padding: 6px;
+  color: var(--biu-ink);
+  background: rgb(255 255 255 / 98%);
+  border: 1px solid var(--biu-line-strong);
+  border-radius: 10px;
+  box-shadow:
+    0 18px 48px rgb(29 44 74 / 16%),
+    0 3px 10px rgb(29 44 74 / 6%);
+  backdrop-filter: blur(16px);
+}
+.biu-header-menu-item {
+  display: flex;
+  width: 100%;
+  min-height: 34px;
+  align-items: center;
+  gap: 9px;
+  padding: 0 9px;
+  color: var(--biu-ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+  transition:
+    color 0.14s ease,
+    background 0.14s ease;
+}
+.biu-header-menu-item:hover,
+.biu-header-menu-item-active {
+  color: var(--biu-brand-deep);
+  background: var(--biu-brand-soft);
+}
+.biu-header-menu-item:hover,
+.biu-header-menu-item-active {
+  border-radius: 0;
+}
+.biu-header-menu-item .biu-icon {
+  width: 15px;
+  height: 15px;
+  color: #8996aa;
+}
+.biu-header-menu-item-danger {
+  color: #b23c4b;
+}
+.biu-header-menu-item-danger:hover {
+  color: #a22b3c;
+  background: #fff1f3;
+}
+.biu-header-menu-check {
+  margin-left: auto;
+  color: var(--biu-brand);
+  font-weight: 800;
+}
+.biu-menu-divider {
+  height: 1px;
+  margin: 6px 4px;
+  background: var(--biu-line);
+}
+
+.biu-user-panel {
+  min-width: 205px;
+}
+.biu-user-summary {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 7px 8px 9px;
+}
+.biu-user-summary > span:last-child {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+.biu-user-summary strong {
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-user-summary small {
+  color: var(--biu-muted);
+  font-size: 10px;
+}
+.biu-user-version {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 8px 4px 2px;
+  padding: 8px 8px 2px;
+  color: var(--biu-muted);
+  border-top: 1px solid var(--biu-line);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 10px;
+  letter-spacing: 0.01em;
+}
+.biu-user-version-item {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-user-version-item small {
+  margin-inline-end: 3px;
+  color: var(--biu-brand-deep);
+  font-weight: 700;
+}
+.biu-user-version-divider {
+  width: 1px;
+  height: 14px;
+  flex: 0 0 1px;
+  background: var(--biu-line-strong);
+}
+.biu-search-panel {
+  width: min(300px, calc(100vw - 32px));
+}
+.biu-search-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 8px;
+  color: var(--biu-muted);
+  background: #f7f9fc;
+  border: 1px solid var(--biu-line);
+  border-radius: 9px;
+}
+.biu-search-input-wrap input {
+  width: 100%;
+  height: 29px;
+  color: var(--biu-ink);
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 12px;
+}
+.biu-search-results {
+  display: grid;
+  max-height: 270px;
+  gap: 2px;
+  margin-top: 6px;
+  overflow: auto;
+}
+.biu-search-results button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  color: var(--biu-ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+}
+.biu-search-results button:hover {
+  background: var(--biu-brand-soft);
+}
+.biu-search-results button > span:last-child {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+.biu-search-results strong {
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-search-results small {
+  color: var(--biu-muted);
+  font-size: 10px;
+}
+.biu-search-empty,
+.biu-notification-empty {
+  display: grid;
+  min-height: 74px;
+  place-items: center;
+  gap: 5px;
+  color: var(--biu-muted);
+  font-size: 11px;
+}
+.biu-notification-panel {
+  min-width: 246px;
+}
+.biu-popover-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 8px 8px;
+  font-size: 12px;
+}
+.biu-popover-title span {
+  display: grid;
+  min-width: 18px;
+  height: 18px;
+  place-items: center;
+  color: var(--biu-brand-deep);
+  background: var(--biu-brand-soft);
+  border-radius: 99px;
+  font-size: 10px;
+}
+.biu-notification-item {
+  display: grid;
+  width: 100%;
+  gap: 2px;
+  padding: 8px;
+  color: var(--biu-ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+}
+.biu-notification-item:hover {
+  background: var(--biu-brand-soft);
+}
+.biu-notification-item strong {
+  font-size: 11px;
+}
+.biu-notification-item span,
+.biu-notification-item small {
+  overflow: hidden;
+  color: var(--biu-muted);
+  font-size: 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-notification-read {
+  opacity: 0.63;
+}
+
+.biu-sidebar-layout .biu-header {
+  height: 60px;
+  min-height: 60px;
+  flex: 0 0 60px;
+  justify-content: flex-start;
+  padding: 0 12px;
+  background: rgb(255 255 255 / 96%);
+  box-shadow: 0 1px 0 rgb(31 45 72 / 4%);
+}
+.biu-sidebar-layout .biu-toolbar-label {
+  display: none;
+}
+.biu-sidebar-layout .biu-header-actions {
+  justify-content: flex-end;
+  gap: 5px;
+  padding-inline: 4px 0;
+}
+.biu-sidebar-layout .biu-system-switch .biu-header-menu-item {
+  justify-content: space-between;
+  gap: 8px;
+  padding-inline: 11px;
+}
+.biu-sidebar-layout .biu-system-switch .biu-header-menu-item > span:first-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.biu-topbar .biu-system-switch {
+  width: fit-content;
+  min-width: 0;
+  max-width: 140px;
+}
+.biu-topbar .biu-system-switch-popover {
+  min-width: 0;
+}
+.biu-system-switch-popover .biu-header-menu-item {
+  border-radius: 0;
+}
+
+/* The topbar has two independent scrolling rails. The navigation/action split
+   is owned by the header grid; the user area is deliberately outside both. */
+.biu-topbar .biu-header {
+  display: grid;
+  grid-template-columns:
+    minmax(150px, auto) minmax(0, auto) minmax(0, auto) minmax(0, 7fr) minmax(max-content, 3fr)
+    auto;
+  column-gap: 0;
+  padding-inline: 12px;
+}
+.biu-topbar .biu-brand {
+  grid-column: 1;
+  min-width: 196px;
+}
+.biu-topbar .biu-topbar-leading-actions {
+  grid-column: 2;
+  min-width: 0;
+}
+.biu-topbar .biu-navigation-rail {
+  grid-column: 4;
+  width: 100%;
+  flex: none;
+  margin-inline: 0;
+}
+.biu-topbar .biu-topbar-workbar {
+  grid-column: 3;
+  min-width: 0;
+  justify-self: start;
+  margin-inline: 0 4px;
+}
+.biu-topbar .biu-header-custom-slot {
+  width: fit-content;
+  min-width: 0;
+  max-width: min(20vw, 280px);
+  justify-self: start;
+  overflow: hidden;
+}
+.biu-topbar .biu-header-actions-rail-right {
+  grid-column: auto;
+  width: fit-content;
+  min-width: 0;
+  max-width: min(30vw, 360px);
+  flex: 0 1 auto;
+  justify-self: end;
+}
+.biu-topbar .biu-header-actions-rail-right .biu-header-actions {
+  min-width: 0;
+  max-width: 100%;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+  gap: 2px;
+  padding-inline: 0;
+}
+.biu-topbar .biu-header-user-area {
+  grid-column: 6;
+  margin-inline-start: 2px;
+}
+
+/* System switching is text-only and rectangular for quick scanning. */
+.biu-system-switch-popover {
+  width: max-content;
+  max-width: min(240px, calc(100vw - 16px));
+  padding: 4px;
+  border-radius: 13px;
+}
+.biu-system-switch-popover .biu-header-menu-item {
+  min-height: 34px;
+  border-radius: 0;
+}
+
+/* Compact content-sized controls; the user block stays outside the rail. */
+.biu-header-actions-rail-right {
+  width: fit-content;
+  min-width: 0;
+  max-width: min(30vw, 360px);
+}
+.biu-header-actions {
+  gap: 2px;
+}
+.biu-header-action-search,
+.biu-header-action-notification,
+.biu-header-action-theme {
+  width: 36px;
+  min-width: 0;
+  flex: 0 0 36px;
+  padding-inline: 6px;
+}
+.biu-menu-settings-panel {
+  min-width: 220px;
+}
+.biu-menu-settings-section + .biu-menu-settings-section {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px solid var(--biu-line);
+}
+.biu-menu-settings-heading {
+  padding: 3px 9px 5px;
+  color: var(--biu-muted);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+.biu-compact-actions-panel {
+  min-width: 220px;
+  max-height: min(520px, calc(100vh - 24px));
+  overflow-y: auto;
+}
+
+/* Portal switching is a compact text trigger, not a fixed-width toolbar cell. */
+.biu-topbar .biu-system-switch {
+  min-width: 0;
+  max-width: 140px;
+  margin-inline-start: 4px;
+  padding-inline: 6px;
+}
+.biu-topbar .biu-system-label {
+  max-width: 118px;
+}
+
+@media (max-width: 860px) {
+  .biu-header-actions {
+    gap: 5px;
+    padding-inline: 3px;
+  }
+  .biu-header-action {
+    min-width: 0;
+    padding-inline: 8px;
+  }
+  .biu-header-action-search,
+  .biu-header-action-notification,
+  .biu-header-action-theme {
+    width: 36px;
+    min-width: 0;
+    flex-basis: 36px;
+    padding-inline: 6px;
+  }
+  .biu-header-action-user {
+    min-width: 0;
+  }
+  .biu-action-text {
+    display: none;
+  }
+}
+
+/* Final compact contract: portal switching is content-sized and the custom
+   toolbar shares the same rail without reserving a phantom fixed cell. */
+.biu-system-switch,
+.biu.topbar .biu-system-switch,
+.biu-header-action.biu-system-switch {
+  width: fit-content;
+  min-width: 0;
+  max-width: 140px;
+  padding-inline: 5px;
+}
+.biu-system-switch .biu-system-label {
+  max-width: 128px;
+}
+.biu-header-popover {
+  border-radius: 4px;
+}
+.biu-system-switch-popover {
+  width: max-content;
+  max-width: min(240px, calc(100vw - 16px));
+  border-radius: 4px;
+}
+.biu-toolbar-icons-only .biu-action-text {
+  display: none;
+}
+.biu-toolbar-icons-only .biu-header-action {
+  min-width: 0;
+  width: 36px;
+  flex: 0 0 36px;
+  padding-inline: 6px;
+  gap: 0;
+}
+.biu-portal-toolbar-actions {
+  display: inline-flex;
+  min-width: 0;
+  align-items: center;
+  gap: 2px;
+}
+.biu-portal-toolbar-slot {
+  display: inline-flex;
+  min-width: 0;
+  max-width: 100%;
+  align-items: center;
+}
+.biu-portal-toolbar-slot > * {
+  min-width: 0;
+  max-width: 100%;
+}
+.biu-portal-toolbar-action {
+  margin-inline: 0;
+}
+.biu-compact-toolbar-action {
+  min-width: 0;
+}
+.biu-toolbar-action-value {
+  margin: 0;
+  color: currentColor;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.biu-topbar .biu-header {
+  grid-template-columns:
+    minmax(150px, auto) minmax(0, auto) minmax(0, auto) minmax(0, 65fr) minmax(max-content, 35fr)
+    auto;
+}
+.biu-topbar .biu-header > * {
+  grid-row: 1;
+}
+.biu-topbar .biu-topbar-tools {
+  display: flex;
+  min-width: 0;
+  grid-column: 5;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2px;
+  overflow: hidden;
+}
+.biu-topbar .biu-topbar-tools .biu-header-custom-slot {
+  flex: 0 1 auto;
+}
+.biu-topbar .biu-topbar-tools .biu-header-actions-rail-right {
+  flex: 0 1 auto;
+  margin-inline-start: 2px;
+}
+.biu-topbar .biu-header-actions-rail-right {
+  width: fit-content;
+  min-width: 0;
+  max-width: min(30vw, 360px);
+}
+.biu-topbar .biu-header-actions-rail-right .biu-header-actions {
+  min-width: 0;
+  max-width: 100%;
+  justify-content: flex-end;
+}
+.biu-topbar .biu-header-user-area {
+  margin-inline-start: 2px;
+}
+
+/* Topbar navigation becomes a menu button on phones. The menu itself is
+   rendered by the preset so portals and standalone APPs share one contract. */
+.biu-topbar .biu-topbar-menu-trigger {
+  display: none;
+}
+.biu-topbar-mobile-menu {
+  min-width: 232px;
+  max-width: min(340px, calc(100vw - 16px));
+  max-height: min(520px, calc(100vh - 24px));
+  overflow-y: auto;
+}
+.biu-topbar-mobile-menu-item {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 34px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 9px 0 calc(9px + (var(--biu-menu-level, 0) * 14px));
+  color: var(--biu-ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  text-align: left;
+  cursor: pointer;
+  font-size: 12px;
+}
+.biu-topbar-mobile-menu-item:hover,
+.biu-topbar-mobile-menu-active {
+  color: var(--biu-brand-deep);
+  background: var(--biu-brand-soft);
+}
+.biu-topbar-mobile-menu-item > span {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-topbar-mobile-menu-item > .biu-icon:first-child {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 15px;
+  color: #8996aa;
+}
+.biu-topbar-mobile-menu-directory > .biu-icon:last-child {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 13px;
+  margin-inline-start: auto;
+}
+.biu-topbar-mobile-menu-children {
+  display: grid;
+  gap: 1px;
+}
+.biu-header-popover .biu-topbar-nested-menu {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  min-height: 34px;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 0 9px;
+  color: var(--biu-ink-soft);
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  font-size: 12px;
+}
+.biu-header-popover .biu-topbar-nested-menu:hover {
+  color: var(--biu-brand-deep);
+  background: var(--biu-brand-soft);
+}
+.biu-topbar-nested-menu .biu-menu-label {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-topbar-nested-menu > .biu-icon:last-child {
+  width: 13px;
+  height: 13px;
+  margin-inline-start: auto;
+}
+
+@media (max-width: 760px) {
+  .biu-header-custom-slot {
+    display: none;
+  }
+  .biu-header-actions-rail-right .biu-portal-toolbar-actions,
+  .biu-header-actions-rail-right .biu-portal-toolbar-slot {
+    display: none;
+  }
+  .biu-topbar .biu-system-switch {
+    min-width: 0;
+    max-width: 112px;
+    padding-inline: 4px;
+  }
+}

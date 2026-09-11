@@ -1,0 +1,46 @@
+{
+  "name": "@biugle/biu-runtime",
+  "version": "0.1.0",
+  "description": "React runtime shell, lifecycle, routing and foundation APIs for biu.",
+  "license": "MIT",
+  "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup src/index.tsx --format esm --dts --clean",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-dom": ">=18"
+  },
+  "dependencies": {
+    "@biugle/biu-bridge": "workspace:*",
+    "@biugle/biu-events": "workspace:*",
+    "@biugle/biu-i18n": "workspace:*",
+    "@biugle/biu-router": "workspace:*",
+    "@biugle/biu-store": "workspace:*",
+    "@biugle/biu-ui": "workspace:*",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.7.3",
+    "tsup": "^8.3.5",
+    "tsx": "^4.19.2"
+  }
+}

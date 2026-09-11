@@ -1,0 +1,376 @@
+/* Workspace canvas, breadcrumbs and local/remote page surfaces. */
+
+.biu-content {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  padding: 20px 24px 24px;
+  overflow: hidden;
+}
+.biu-page-content {
+  min-height: 0;
+  flex: 1;
+  padding: 26px 28px;
+  overflow: auto;
+  background: var(--biu-surface);
+  border: 1px solid var(--biu-line);
+  border-radius: var(--biu-radius);
+  box-shadow: var(--biu-shadow);
+}
+.biu-default-home {
+  display: grid;
+  min-height: 220px;
+  align-content: center;
+  justify-items: center;
+  gap: 8px;
+  padding: 32px;
+  color: var(--biu-muted);
+  text-align: center;
+}
+.biu-default-home p {
+  margin: 0;
+  color: var(--biu-brand-deep);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.biu-default-home h1 {
+  margin: 0;
+  color: var(--biu-ink);
+  font-size: clamp(20px, 3vw, 30px);
+  font-weight: 700;
+}
+.biu-default-home span {
+  font-size: 12px;
+}
+.biu-breadcrumb {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+  min-height: 23px;
+  margin: 0 0 13px;
+  overflow: hidden;
+  color: #98a2b2;
+  font-size: 12px;
+  white-space: nowrap;
+  scrollbar-width: none;
+}
+.biu-breadcrumb::-webkit-scrollbar {
+  display: none;
+}
+.biu-breadcrumb-path {
+  display: block;
+  width: 0;
+  min-width: 0;
+  max-width: 100%;
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.biu-breadcrumb span {
+  flex: 0 0 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.biu-breadcrumb .biu-breadcrumb-path {
+  flex: 1 1 auto;
+}
+.biu-breadcrumb-node {
+  min-width: 0;
+  flex: 0 1 auto;
+  color: var(--biu-muted);
+}
+.biu-breadcrumb-current {
+  color: var(--biu-ink-soft);
+  font-size: 13px;
+  font-weight: 600;
+}
+.biu-breadcrumb-path > span {
+  display: inline;
+  overflow: visible;
+}
+.biu-breadcrumb .biu-breadcrumb-node {
+  flex: 0 0 auto;
+}
+.biu-breadcrumb .biu-breadcrumb-current {
+  flex: 1 1 0;
+}
+.biu-breadcrumb-middle {
+  display: contents;
+}
+.biu-breadcrumb-compact-ellipsis {
+  display: none;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+  color: var(--biu-muted);
+}
+.biu-breadcrumb-ellipsis {
+  color: var(--biu-muted);
+}
+
+.biu-blank {
+  display: grid;
+  place-items: center;
+  background: var(--biu-canvas);
+}
+.biu-blank .biu-content {
+  width: min(1180px, 100%);
+  padding: 40px;
+}
+.biu-blank .biu-page-content {
+  min-height: auto;
+  box-shadow: none;
+}
+.biu-dashboard .biu-page-content {
+  background: linear-gradient(145deg, var(--biu-surface), var(--biu-canvas));
+}
+
+.biu-sidebar-layout .biu-content {
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow: hidden;
+  padding: 0 20px 20px;
+}
+.biu-sidebar-layout .biu-breadcrumb {
+  min-height: 32px;
+  flex: 0 0 32px;
+  margin: 0;
+  padding: 0 12px;
+  background: rgb(255 255 255 / 58%);
+  border-bottom: 1px solid var(--biu-line);
+}
+.biu-sidebar-layout .biu-tabs-bar {
+  flex: 0 0 38px;
+  height: 38px;
+  min-height: 38px;
+  margin: 0;
+  padding: 0 4px;
+}
+.biu-sidebar-layout .biu-content > .biu-page-content {
+  min-height: 0;
+  flex: 1 1 auto;
+  margin-top: 0;
+}
+.biu-sidebar-layout .biu-content > .biu-tabs-bar + .biu-page-content {
+  margin-top: 0;
+}
+.biu-sidebar-layout .biu-page-content-app {
+  display: flex;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.biu-page-content-app .biu-remote-frame-shell {
+  flex: 1 1 auto;
+  height: 100%;
+  min-height: 0;
+}
+
+.biu-sidebar-layout .biu-page-content {
+  min-width: 0;
+  padding: 24px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.biu-sidebar-layout .biu-breadcrumb small {
+  margin-left: 4px;
+  color: var(--biu-muted);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+/* Content owns overflow. The host never creates a scrollbar for a short APP. */
+.biu-content,
+.biu-page-content {
+  min-width: 0;
+  min-height: 0;
+}
+.biu-page-content-app {
+  overflow: hidden;
+}
+.biu-page-content-app .biu-remote-frame-shell,
+.biu-page-content-app .biu-app-frame {
+  min-height: 0;
+  height: 100%;
+}
+
+/* An APP owns its own spacing. The host only reserves navigation chrome and
+   gives the iframe the complete remaining workspace. */
+.biu-content-app {
+  padding: 0;
+}
+.biu-content-app .biu-breadcrumb {
+  margin: 0;
+}
+.biu-content-app .biu-tabs-bar {
+  margin: 0;
+}
+.biu-content-app > .biu-page-content-app {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  margin: 0 !important;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.biu-content-app > .biu-page-content-app .biu-remote-frame-shell,
+.biu-content-app > .biu-page-content-app .biu-app-frame {
+  width: 100%;
+  height: 100%;
+}
+
+/* The host owns the chrome only. A remote APP receives the complete area
+   below the breadcrumb/tabs; its own page decides whether it needs padding,
+   cards or scrolling. */
+.biu-sidebar-layout .biu-content {
+  padding: 0;
+}
+.biu-sidebar-layout .biu-page-content-app {
+  min-width: 0;
+  min-height: 0;
+  margin: 0 !important;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.biu-sidebar-layout .biu-page-content-app .biu-remote-frame-shell,
+.biu-sidebar-layout .biu-page-content-app .biu-app-frame {
+  width: 100%;
+  height: 100%;
+}
+
+.biu-loading {
+  display: grid;
+  min-height: 160px;
+  place-items: center;
+  gap: 10px;
+  color: var(--biu-muted);
+  background: transparent;
+}
+.biu-loading::before {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--biu-line-strong);
+  border-top-color: var(--biu-brand);
+  border-radius: 50%;
+  animation: biu-spin 0.72s linear infinite;
+  content: "";
+}
+
+[data-biu-message-host] {
+  position: fixed;
+  top: 16px;
+  left: 50%;
+  z-index: 2147483646;
+  display: grid;
+  width: min(420px, calc(100vw - 32px));
+  gap: 8px;
+  pointer-events: none;
+  transform: translateX(-50%);
+}
+.biu-message {
+  display: flex;
+  min-height: 38px;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 11px;
+  color: var(--biu-ink);
+  background: var(--biu-surface);
+  border: 1px solid var(--biu-line-strong);
+  border-radius: 4px;
+  box-shadow: 0 10px 28px rgb(15 23 42 / 18%);
+  font-size: 13px;
+  line-height: 18px;
+  pointer-events: auto;
+  animation: biu-message-in 0.16s ease-out;
+}
+.biu-message-icon {
+  display: grid;
+  width: 18px;
+  height: 18px;
+  flex: 0 0 18px;
+  place-items: center;
+  color: #1677ff;
+  border: 1px solid currentcolor;
+  border-radius: 50%;
+  font-size: 11px;
+  font-weight: 700;
+}
+.biu-message-success .biu-message-icon {
+  color: #1d9b61;
+}
+.biu-message-warning .biu-message-icon {
+  color: #c27b00;
+}
+.biu-message-error .biu-message-icon {
+  color: #d14343;
+}
+.biu-message-close {
+  margin-inline-start: auto;
+  padding: 0 2px;
+  color: var(--biu-muted);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  font-size: 17px;
+  line-height: 18px;
+}
+.biu-message-close:hover {
+  color: var(--biu-ink);
+}
+.biu-message-leaving {
+  opacity: 0;
+  transform: translateY(-4px);
+  transition:
+    opacity 0.16s ease,
+    transform 0.16s ease;
+}
+@keyframes biu-message-in {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.biu-frame-state {
+  gap: 10px;
+  text-align: center;
+}
+.biu-frame-state::before {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--biu-line-strong);
+  border-top-color: var(--biu-brand);
+  border-radius: 50%;
+  animation: biu-spin 0.72s linear infinite;
+  content: "";
+}
+.biu-frame-state-error::before {
+  display: none;
+}
+@keyframes biu-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

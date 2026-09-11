@@ -1,0 +1,37 @@
+export default [
+  { code: "Home", type: "MENU", target: "PORTAL", source: "PORTAL", titleKey: "首页", path: "/" },
+  {
+    code: "PageA",
+    type: "MENU",
+    target: "APP",
+    source: "APP",
+    titleKey: "PageA",
+    appId: "child-app",
+    appPath: "/PageA",
+  },
+  {
+    code: "VuePage",
+    type: "MENU",
+    target: "APP",
+    source: "APP",
+    titleKey: "Vue 3 子应用",
+    appId: "vue-child",
+    appPath: "/VuePage",
+  },
+  {
+    code: "Dashboard",
+    type: "MENU",
+    target: "PORTAL",
+    source: "PORTAL",
+    titleKey: "A 门户概览",
+    path: "/Dashboard",
+  },
+  {
+    code: "FoundationShowcase",
+    type: "MENU",
+    target: "PORTAL",
+    source: "PORTAL",
+    titleKey: "基座能力验收 Foundation Showcase",
+    path: "/FoundationShowcase",
+  },
+];

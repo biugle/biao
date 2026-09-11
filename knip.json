@@ -1,0 +1,61 @@
+{
+  "$schema": "./node_modules/knip/schema.json",
+  "ignoreWorkspaces": ["examples/dev-demo/**"],
+  "workspaces": {
+    ".": {
+      "entry": [],
+      "project": []
+    },
+    "packages/events": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts", "test/**/*.ts"]
+    },
+    "packages/i18n": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts"]
+    },
+    "packages/bridge": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts", "test/**/*.ts"]
+    },
+    "packages/router": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts", "test/**/*.ts"]
+    },
+    "packages/store": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts", "test/**/*.ts"],
+      "ignoreIssues": {
+        "src/store/preference-store.ts": ["exports", "duplicates"]
+      }
+    },
+    "packages/ui": {
+      "entry": ["src/index.ts"],
+      "project": ["src/**/*.ts", "src/**/*.tsx"]
+    },
+    "packages/runtime": {
+      "entry": ["src/index.tsx"],
+      "project": ["src/**/*.ts", "src/**/*.tsx", "test/**/*.ts"]
+    },
+    "packages/preset": {
+      "entry": [
+        "src/sidebar.tsx",
+        "src/topbar.tsx",
+        "src/blank.tsx",
+        "src/dashboard.tsx",
+        "src/mobile.tsx",
+        "src/custom.tsx",
+        "src/toolbar.tsx"
+      ],
+      "project": ["src/**/*.ts", "src/**/*.tsx"]
+    },
+    "packages/adapter-react": {
+      "entry": ["src/index.tsx"],
+      "project": ["src/**/*.tsx"]
+    },
+    "packages/cli": {
+      "entry": ["src/index.ts", "src/cli.ts"],
+      "project": ["src/**/*.ts", "test/**/*.ts", "bin/**/*.mjs"]
+    }
+  }
+}
