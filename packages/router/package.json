@@ -1,6 +1,6 @@
 {
   "name": "@biugle/biu-router",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Hierarchical menu, URL, permission and navigation utilities for biu.",
   "license": "MIT",
   "type": "module",

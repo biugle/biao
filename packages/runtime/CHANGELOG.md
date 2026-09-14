@@ -1,5 +1,18 @@
 # @biugle/biu-runtime
 
+## 0.2.1
+
+### Patch Changes
+
+- Prepare the 0.2.1 package release with the public package documentation and licensing metadata.
+- Updated dependencies
+  - @biugle/biu-bridge@0.2.1
+  - @biugle/biu-events@0.2.1
+  - @biugle/biu-i18n@0.2.1
+  - @biugle/biu-router@0.2.1
+  - @biugle/biu-store@0.2.1
+  - @biugle/biu-ui@0.2.1
+
 ## 0.2.0
 
 ### Minor Changes

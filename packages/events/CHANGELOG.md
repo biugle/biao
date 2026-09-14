@@ -1,5 +1,11 @@
 # @biugle/biu-events
 
+## 0.2.1
+
+### Patch Changes
+
+- Prepare the 0.2.1 package release with the public package documentation and licensing metadata.
+
 ## 0.2.0
 
 ### Minor Changes
